@@ -154,6 +154,8 @@
 -(void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations
 {
       CLLocation *location = locations.lastObject;
+    self.latitude.text = [NSString stringWithFormat:@"%f",location.coordinate.latitude];
+    self.longitude.text = [NSString stringWithFormat:@"%f",location.coordinate.longitude];
     NSLog(@"位置信息维度%f,经度%f,海拔%f,方向%f,速度%fM/s,时间%@,水平精确度%f",location.coordinate.latitude,location.coordinate.longitude,location.altitude,location.course,location.speed,location.timestamp,location.horizontalAccuracy);
     self.locationLable.text = [NSString stringWithFormat:@"位置信息维度%f,经度%f,海拔%f,方向%f,速度%fM/s,时间%@,水平精确度%f",location.coordinate.latitude,location.coordinate.longitude,location.altitude,location.course,location.speed,location.timestamp,location.horizontalAccuracy];
 //    [self reverseGeocodeLocation:location completionHandler:nil];
